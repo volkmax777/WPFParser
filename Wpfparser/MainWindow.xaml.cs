@@ -39,17 +39,17 @@ namespace Wpfparser
         {
             if (Universal.IsChecked == true)
             {
-                var hg = Parser.UniPars(Link.Text);
-                Header.Text = hg[0];
-                Content.Text = hg[1];
+                var hc = Parser.UniParse(Link.Text);
+                Header.Text = hc[0];
+                Content.Text = hc[1];
             }
             if (Lenta.IsChecked == true)
             {
                 if (Link.Text.Contains("lenta.ru"))
                 {
-                    var hg = Parser.LentaPars(Link.Text);
-                    Header.Text = hg[0];
-                    Content.Text = hg[1];
+                    var hc = Parser.LentaParse(Link.Text);
+                    Header.Text = hc[0];
+                    Content.Text = hc[1];
                 }
                 else Header.Text = "Введи ссылку lenta.ru";
             }

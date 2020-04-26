@@ -10,7 +10,7 @@ namespace Wpfparser
 {
     public class Parser
     {
-        public static string[] LentaPars(string args)
+        public static string[] LentaParse(string args)
         {
             try
             {
@@ -19,15 +19,16 @@ namespace Wpfparser
                 doc.LoadHtml(txtHTML);
                 HtmlNode node = doc.DocumentNode.SelectSingleNode("//*/div[@class='b-text clearfix js-topic__text']");
                 var txtTitle = FindText(txtHTML, @"<title>", @"</title>");
-                var content = node.InnerText;
-                return new string[] { txtTitle, content };
+                var content1 = node.InnerText;
+                var content2 = content1.Replace(".", ". ");
+                return new string[] { txtTitle, content2 };
             }
             catch
             {
                 return new string[] {"Что-то пошло не так", ""};
             }
         }
-        public static string[] UniPars(string args)
+        public static string[] UniParse(string args)
         {
             try
             {
