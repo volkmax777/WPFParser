@@ -1,0 +1,30 @@
+﻿<Window x:Class="Wpfparser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpfparser"
+        mc:Ignorable="d"
+        Title="Парсер" Height="450" Width="800" MinWidth="450" MinHeight="300" Icon="MyIcon.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="72" MaxWidth="72" MinWidth="72"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="120" MaxWidth="120" MinWidth="120"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="40" MinHeight="40" Height="40*"/>
+            <RowDefinition Height="40" MaxHeight="40" MinHeight="40"/>
+            <RowDefinition Height="197*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="Output" Content="Вывод" Grid.Row="0" Grid.Column="2" Click="Button_Click" Margin="5,5,5,5"/>
+        <Label x:Name="LinkLabel" Content="Ссылка:" Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch"/>
+        <TextBox x:Name="Link" Text="Введите ссылку" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" MaxHeight="35"/>
+        <TextBox x:Name="Header" IsReadOnly="True" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" MaxHeight="35" Margin="0,0,5,0"/>
+        <Label x:Name="HeaderLabel" Content="Заголовок:" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Content" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" IsReadOnly="True" Margin="10,5,10,10" AcceptsReturn="True" TextWrapping="Wrap"/>
+        <RadioButton x:Name="Universal" Content="Универсальный" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,2,0,0" IsChecked="True"/>
+        <RadioButton x:Name="Lenta" Content="Lenta.ru" Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+    </Grid>
+
+</Window>
