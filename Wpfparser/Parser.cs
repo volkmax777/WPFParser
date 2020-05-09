@@ -45,6 +45,7 @@ namespace Wpfparser
                 return new string[] { "Что-то пошло не так", ""};
             }
         }
+
         public static string RemoveUnwantedTags(string data)
         {
             if (string.IsNullOrEmpty(data)) return string.Empty;

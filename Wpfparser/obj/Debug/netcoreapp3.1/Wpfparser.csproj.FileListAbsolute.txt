@@ -18,3 +18,5 @@ D:\maksi\source\repos\Wpfparser\Wpfparser\obj\Debug\netcoreapp3.1\Wpfparser.pdb
 D:\maksi\source\repos\Wpfparser\Wpfparser\bin\Debug\netcoreapp3.1\HtmlAgilityPack.dll
 D:\maksi\source\repos\Wpfparser\Wpfparser\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
 D:\maksi\source\repos\Wpfparser\Wpfparser\obj\Debug\netcoreapp3.1\Wpfparser.csproj.CopyComplete
+D:\maksi\source\repos\Wpfparser\Wpfparser\obj\Debug\netcoreapp3.1\Wpfparser.csproj.CoreCompileInputs.cache
+D:\maksi\source\repos\Wpfparser\Wpfparser\obj\Debug\netcoreapp3.1\Wpfparser.genruntimeconfig.cache

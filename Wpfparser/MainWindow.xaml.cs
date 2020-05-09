@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,6 +60,19 @@ namespace Wpfparser
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void SaveAs_Click(object sender, RoutedEventArgs e)
+        {
+            if (Content.Text == "") MessageBox.Show("Нажми вывод");
+            else
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Text file (*.txt)|*.txt";
+                saveFileDialog.FileName = "Сайт";
+                if (saveFileDialog.ShowDialog() == true)
+                    File.WriteAllText(saveFileDialog.FileName, Link.Text + "\n" + "\n" + Header.Text + "\n" + "\n" + Content.Text);
+            }
         }
     }
 }
