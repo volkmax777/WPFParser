@@ -10,24 +10,6 @@ namespace Wpfparser
 {
     public class Parser
     {
-        public static string[] LentaParse(string args)
-        {
-            try
-            {
-                var txtHTML = GetPage(args);
-                var doc = new HtmlDocument();
-                doc.LoadHtml(txtHTML);
-                HtmlNode node = doc.DocumentNode.SelectSingleNode("//*/div[@class='b-text clearfix js-topic__text']");
-                var txtTitle = FindText(txtHTML, @"<title>", @"</title>");
-                var content1 = node.InnerText;
-                var content2 = content1.Replace(".", ". ");
-                return new string[] { txtTitle, content2 };
-            }
-            catch
-            {
-                return new string[] {"Что-то пошло не так", ""};
-            }
-        }
         public static string[] UniParse(string args)
         {
             try
@@ -83,25 +65,31 @@ namespace Wpfparser
         }
         public static String FindText(string source, string prefix, string suffix)
         {
-            var prefixPosition = source.IndexOf(prefix, StringComparison.OrdinalIgnoreCase);
-            var suffixPosition = source.IndexOf(suffix, prefixPosition + prefix.Length, StringComparison.OrdinalIgnoreCase);
-            if ((prefixPosition >= 0) && (suffixPosition >= 0) && (suffixPosition > prefixPosition) && ((prefixPosition + prefix.Length) <= suffixPosition))
+            string text = "";
+            for (int startind = 0; startind <= source.Length;)
             {
-                return source.Substring(prefixPosition + prefix.Length, suffixPosition - prefixPosition - prefix.Length);
+                int prefixPosition = source.IndexOf(prefix, startind, StringComparison.OrdinalIgnoreCase);
+                int suffixPosition = source.IndexOf(suffix, prefixPosition + prefix.Length, StringComparison.OrdinalIgnoreCase);
+                if ((prefixPosition >= 0) && (suffixPosition >= 0) && (suffixPosition > prefixPosition) && ((prefixPosition + prefix.Length) <= suffixPosition))
+                {
+                    text += source.Substring(prefixPosition + prefix.Length, suffixPosition - prefixPosition - prefix.Length);
+                    startind = suffixPosition;
+                }
+                else
+                {
+                    break;
+                }
             }
-            else
-            {
-                return String.Empty;
-            }
+            return text;
         }
         public static string GetPage(string url)
         {
-            var result = String.Empty;
-            var request = (HttpWebRequest)WebRequest.Create(url);
-            var response = (HttpWebResponse)request.GetResponse();
+            string result = String.Empty;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                var responseStream = response.GetResponseStream();
+                Stream responseStream = response.GetResponseStream();
                 if (responseStream != null)
                 {
                     StreamReader streamReader;

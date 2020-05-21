@@ -18,3 +18,5 @@ D:\maksi\source\repos\Wpfparser\Wpfparser\obj\Release\netcoreapp3.1\Wpfparser.As
 D:\maksi\source\repos\Wpfparser\Wpfparser\obj\Release\netcoreapp3.1\Wpfparser.csproj.CopyComplete
 D:\maksi\source\repos\Wpfparser\Wpfparser\obj\Release\netcoreapp3.1\Wpfparser.dll
 D:\maksi\source\repos\Wpfparser\Wpfparser\obj\Release\netcoreapp3.1\Wpfparser.pdb
+D:\maksi\source\repos\Wpfparser\Wpfparser\obj\Release\netcoreapp3.1\Wpfparser.csproj.CoreCompileInputs.cache
+D:\maksi\source\repos\Wpfparser\Wpfparser\obj\Release\netcoreapp3.1\Wpfparser.genruntimeconfig.cache

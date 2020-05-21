@@ -39,22 +39,9 @@ namespace Wpfparser
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (Universal.IsChecked == true)
-            {
-                var hc = Parser.UniParse(Link.Text);
-                Header.Text = hc[0];
-                Content.Text = hc[1];
-            }
-            if (Lenta.IsChecked == true)
-            {
-                if (Link.Text.Contains("lenta.ru"))
-                {
-                    var hc = Parser.LentaParse(Link.Text);
-                    Header.Text = hc[0];
-                    Content.Text = hc[1];
-                }
-                else Header.Text = "Введи ссылку lenta.ru";
-            }
+            var hc = Parser.UniParse(Link.Text);
+            Header.Text = hc[0];
+            Content.Text = hc[1];
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
